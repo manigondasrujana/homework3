@@ -1,85 +1,102 @@
-hi
 <?php
-echo "<h1>Welcome to IS218</h1>";
-echo "<h2>indexed array</h2>";
-$cars = array("Volvo","Nissan","Toyota");
-$exam = array('Volvo',22,18);
-echo $cars[0]."<br>";
-$cars = array();
-$cars[0] = "Volvo";
-$cars[1] = "Nissan";
-$cars[2] = "Toyota";
-echo $cars[1]."<br>";
-echo "<h2>associative arrays</h2>";
-$age = array('Peter' => 32, 'Ben' => 27,'Joe' => 16);
-echo $age['Peter']."<br>";
-echo "<h2>multidimensional</h2>";
-$car_info = array(
-array('Volvo',22,18),
-array('BMW',15,13),
-array(
-	array('apple',15,13),
-		),
-		);
-		echo $car_info[2][0][0]."<br>";
-		echo "<h2>mixed arrays</h2>";
-		$values = array(0,0.0,false,'haha',array('BMW',15,13));
-		echo $values."<br>";
-		var_dump($values);
-		echo "<br>";
-		print_r($values);
-		echo "<br>";
-		$employees = array();
-		$employees[0]="Mike";
-		$employees['position']="manager";
-		echo count($employees)."<br>";
-		unset($employees);
-		print_r($employees);
-		echo "<br>";
-		$number = range(0,5);
-		print_r($number);
-		echo "<br>";
-		$number = range(0,5,2);
-		print_r($number);
-		echo "<br>";
-		$num = array_fill(0, 5, 1);
-		print_r($num);
-		echo "<br>";
-		$pad = array_pad($num, 7, 0);
-		print_r($pad);
-		echo "<br>";
-		$obj=range(0,3);
-		$obj1=range(4,6);
-		$merge =array_merge($obj,$obj1);
-		print_r($merge);
-		echo "<br>";
-		$slice=array_slice($merge, 2,3);
-		print_r($slice);
-		echo "<br>";
-		echo array_sum($slice)."<br>";
-		$name = array("Mike","Anne","Ray");
-		sort($name);
-		print_r($name);
-		echo "<br>";
-		rsort($name);
-		print_r($name);
-		echo "<br>";
-		$tax_rate=array('ny'=7.75,'nj'=0.7,'oregon'=0.0);
-		asort($tax_rate);
-		print_r($tax_rate);
-		echo "<br>";
-		ksort($tax_rate);
-		print_r($tax_rate);
-		echo "<br>";
-		arsort($tax_rate);
-		print_r($tax_rate);
-		echo "<br>";
-		krsort($tax_rate);
-		print_r($tax_rate);
-		echo "<br>";
-		echo "<br><br><br><br><br><br><br>";
-		echo "<br><br><br><br><br><br><br>";
-		echo "<br><br><br><br><br><br><br>";
-		echo "<br><br><br><br><br><br><br>";
-		?>
-		
+echo '<h1> this is array_sum function</h1>';
+$a = array(2, 4, 6, 8);
+echo "sum(a) = " . array_sum($a) . "\n";
+
+$b = array("a" => 1.2, "b" => 2.3, "c" => 3.4);
+echo "sum(b) = " . array_sum($b) . "\n";
+echo '<hr>';
+echo '<h1> this is array_column function</h1>';
+$records = array(
+    array(
+            'id' => 2135,
+	            'first_name' => 'John',
+		            'last_name' => 'Doe',
+			        ),
+				    array(
+				            'id' => 3245,
+					            'first_name' => 'Sally',
+						            'last_name' => 'Smith',
+							        ),
+								    array(
+								            'id' => 5342,
+									            'first_name' => 'Jane',
+										            'last_name' => 'Jones',
+											        ),
+												    array(
+												            'id' => 5623,
+													            'first_name'
+														    =>
+														    'Peter',
+														            'last_name'
+															    =>
+															    'Doe',
+															        )
+																);
+																 
+																 $first_names
+																 =
+																 array_column($records,
+																 'first_name');
+																 print_r($first_names);
+														
+
+echo '<hr>';
+echo '<h1> this is array_diff function</h1>';
+$array1 = array("a" => "green", "red", "blue", "red");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
+
+print_r($result);
+echo '<hr>';
+
+echo '<h1> this is array_fill function</h1>';
+$a = array_fill(5, 6, 'banana');
+$b = array_fill(-2, 4, 'pear');
+print_r($a);
+print_r($b);
+echo '<hr>';
+
+echo '<h1> this is array_combine function</h1>';
+$a = array('green', 'red', 'yellow');
+$b = array('avocado', 'apple', 'banana');
+$c = array_combine($a, $b);
+echo '<hr>';
+print_r($c);
+
+echo '<h1> this is array_count_values function</h1>';
+$array = array(1, "hello", 1, "world", "hello");
+print_r(array_count_values($array));
+echo '<hr>';
+
+echo '<h1> this is array_merge function</h1>';
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
+print_r($result);
+echo '<hr>';
+
+echo '<h1> this is array_push function</h1>';
+$stack = array("orange", "banana");
+array_push($stack, "apple", "raspberry");
+print_r($stack);
+echo '<hr>';
+
+echo '<h1> this is array_multisort functio</h1>';
+$ar1 = array(10, 100, 100, 0);
+$ar2 = array(1, 3, 2, 4);
+array_multisort($ar1, $ar2);
+
+var_dump($ar1);
+var_dump($ar2);
+echo '<hr>';
+
+echo '<h1> this is array_replace function</h1>';
+$base = array("orange", "banana", "apple", "raspberry");
+$replacements = array(0 => "pineapple", 4 => "cherry");
+$replacements2 = array(0 => "grape");
+
+$basket = array_replace($base, $replacements, $replacements2);
+print_r($basket);
+echo '<hr>';
+?>
